@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포커스, 블러 이벤트</title>
+        <style>
+            input {
+                outline: none;
+                border: none;
+            }
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" name="info">
+            <a href="">안녕</a>
+            <input
+                type="text"
+                name="birth"
+                placeholder="생년월일"
+                autocomplete="off"
+            />
+            <input type="text" name="phone" placeholder="핸드폰 번호" />
+        </form>
+    </body>
+    <script>
+        const birth = document.info.birth;
+        const phone = document.info.phone;
+        birth.addEventListener("blur", () => {
+            const birthRegex =
+                /^(19[0-9][0-9]|20\d{2})\.?(0[1-9]|1[0-2])\.?(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            if (birthRegex.test(birth.value)) {
+                birth.style.border = "1px solid green";
+                return;
+            }
+            birth.style.border = "1px solid red";
+            birth.focus();
+        });
+
+        phone.addEventListener("blur", () => {
+            const phoneRegex =
+                /^01([0|1|6|7|8|9])\-?([0-9]{3,4})\-?([0-9]{4})$/;
+            if (phoneRegex.test(phone.value)) {
+                phone.style.border = "1px solid green";
+                return;
+            }
+            phone.style.border = "1px solid red";
+            phone.focus();
+        });
+    </script>
+</html>

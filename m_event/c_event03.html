@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>즐겨찾기</title>
+        <style>
+            main {
+                width: 1208px;
+                height: fit-content;
+                margin: 30px auto;
+            }
+
+            section {
+                width: 300px;
+                height: fit-content;
+                border: 0.5px solid rgba(128, 128, 128, 0.115);
+                float: left;
+            }
+
+            div.item-thumbnail {
+                background-image: url("../../resource/KakaoTalk_20240130_140935829.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center;
+                width: 100%;
+                height: 460px;
+            }
+
+            div.icon-wrap {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: space-between;
+            }
+
+            div.icon-wrap div.icon-container {
+                display: flex;
+                align-items: center;
+                width: 60px;
+            }
+
+            div.icon {
+                width: 30px;
+                padding: 0 6px;
+            }
+
+            div.image {
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: center;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
+            div.favorite {
+                background-image: url("../../resource/KakaoTalk_20240130_140809140.png");
+            }
+
+            div.like {
+                margin-top: 4px;
+                background-image: url("../../resource/KakaoTalk_20240130_143846741_01.png");
+            }
+
+            div.send {
+                margin-top: 4px;
+                background-image: url("../../resource/KakaoTalk_20240130_144753112.png");
+            }
+            div.send.on {
+                background-image: url("../../resource/KakaoTalk_20240130_144753112_01.png");
+            }
+
+            /* 아래와 같이 선택자에 클래스를 붙여서 쓰면 and 연산이며, */
+            /* 반드시 2개의 클래스가 순서에 상관없이 모두 있어야 적용된다. */
+            /* .a.b: class="a b" */
+            div.favorite.on {
+                background-image: url("../../resource/KakaoTalk_20240130_140809140_01.png");
+            }
+
+            div.like.on {
+                background-image: url("../../resource/KakaoTalk_20240130_143846741.png");
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <div class="item-thumbnail"></div>
+                <div class="icon-wrap">
+                    <div class="icon-container">
+                        <div class="icon">
+                            <div class="like image"></div>
+                        </div>
+                        <div class="icon">
+                            <div class="send image"></div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="favorite image"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script>
+        const favorites = document.querySelectorAll(
+            "section .icon-wrap div.favorite"
+        );
+        const likes = document.querySelectorAll("section .icon-wrap div.like");
+
+        favorites.forEach((favorite) => {
+            favorite.addEventListener("click", (e) => {
+                e.target.classList.toggle("on");
+            });
+        });
+
+        likes.forEach((like) => {
+            like.addEventListener("click", (e) => {
+                e.target.classList.toggle("on");
+            });
+        });
+
+        const sends = document.querySelectorAll("section .icon-wrap div.send");
+        
+        sends.forEach((send) => {
+            send.addEventListener("mouseenter", (e) => {
+                e.target.classList.toggle("on");
+            });
+            send.addEventListener("mouseleave", (e) => {
+                e.target.classList.toggle("on");
+            });
+        });
+    </script>
+</html>
