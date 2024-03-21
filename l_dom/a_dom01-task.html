@@ -13,13 +13,16 @@
         </ul>
     </body>
     <script>
-        HTMLCollection.prototype.forEach = Array.prototype.forEach;
         // 자동차 중 ferrari만 빨간색 글자로 설정,
-        // 나머지 자동차는 글자 크기를 20xp로 설정(DOM객체.style.fontSize)
+        // 나머지 자동차는 글자 크기를 20px로 설정(DOM객체.style.fontSize)
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
         document.getElementsByClassName("car").forEach((car) => {
-            car.className.includes("ferrari")
-                ? (car.style.color = "red")
-                : (car.style.fontSize = "20px");
+            if (car.classList[1]) {
+                car.style.color = "red";
+                return;
+            }
+
+            car.style.fontSize = "20px";
         });
     </script>
 </html>

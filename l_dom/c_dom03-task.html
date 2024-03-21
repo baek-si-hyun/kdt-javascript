@@ -10,11 +10,9 @@
         <p id="message"></p>
     </body>
     <script>
-        HTMLCollection.prototype.filter = Array.prototype.filter;
-
         // "안녕하세요" 문구를 굵게 표시해서 p태그에 넣는다.
-        const pTag = document.getElementById("message");
-        const text = '안녕하세요'
-        pTag.innerHTML = `<strong>${text}</strong>`
+        const message = document.getElementById("message");
+        const text = "안녕하세요";
+        message.innerHTML = `<strong>${text}</strong>`;
     </script>
 </html>

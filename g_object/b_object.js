@@ -6,6 +6,7 @@ lunch.price = "3000";
 console.log(lunch);
 
 lunch.pay = () => {
-    console.log("결제완료");
+    console.log("결제 완료");
 };
+
 lunch.pay();

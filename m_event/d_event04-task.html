@@ -4,24 +4,37 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>키 이벤트</title>
+        <style>
+            input {
+                border: 1px solid gray;
+                outline: none;
+            }
+        </style>
     </head>
     <body>
         <input type="text" placeholder="이름" autocomplete="off" />
-        <ul></ul>
-        <p id="name"></p>
+        <ul id="items"></ul>
     </body>
     <script>
+        const ul = document.getElementById("items");
         const input = document.querySelector("input[placeholder=이름]");
         const p = document.querySelector("#name");
-        const ul = document.querySelector("ul");
-        let item = '';
         input.addEventListener("keyup", (e) => {
-            if (e.keyCode === 13) {
-                if(!e.target.value) return
-                item += `<li>${e.target.value}</li>`;
-                e.target.value = ''
+            // console.log(e.keyCode);
+            if (input.value) {
+                input.style.border = "1px solid gray";
             }
-            ul.innerHTML = item;
+            if (e.keyCode === 13) {
+                if (input.value) {
+                    ul.innerHTML += `<li>${input.value}</li>`;
+                    input.value = "";
+                } else {
+                    input.style.border = "1px solid red";
+                }
+            }
+            // 입력한 키 중, 엔터일 경우 ul안에 li태그로 입력한 문자열값을 추가한다.
+            // 이 때, 작성한 값은 사라지게 한다(빈 문자열을 넣으면 해결가능).
+            // ※ 아무것도 입력하지 않고 엔터를 치면, input에 빨간색 테두리 스타일 적용
         });
     </script>
 </html>

@@ -18,15 +18,16 @@
         </form>
     </body>
     <script>
-        console.log(document.login)
         // 이메일과 비밀번호를 유효성 검사진행
-        if(!document.login['email'].value){
-            console.log('email을 입력해주세요')
+        if (!document.login.email.value) {
+            console.log("이메일을 입력해주세요.");
         }
-        if(!document.login['password'].value){
-            console.log('password을 입력해주세요')
+
+        if (!document.login.password.value) {
+            console.log("비밀번호를 입력해주세요.");
         }
+
         // 아이디 저장을 처음부터 체크되도록 설정
-        document.login['save-id'].checked = true
+        document.login["save-id"].checked = true;
     </script>
 </html>

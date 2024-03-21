@@ -18,17 +18,16 @@
         </ul>
     </body>
     <script>
-        NodeList.prototype.filter = Array.prototype.filter;
         const items = document.querySelectorAll("ul li");
-        const filterItem = items.filter((item) =>
-            item.innerText.includes("아이폰")
-        );
-        filterItem.forEach((li) => {
-            li.style.color = 'pink';
-            li.style.fontSize = "30px";
-        });
-
         // 내용에 아이폰이 들어간 태그의 스타일 중,
         // fontSize를 30px, color: pink로 변경
+        items.forEach((item) => {
+            if (item.innerText.includes("아이폰")) {
+                with (item.style) {
+                    fontSize = "30px";
+                    color = "pink";
+                }
+            }
+        });
     </script>
 </html>

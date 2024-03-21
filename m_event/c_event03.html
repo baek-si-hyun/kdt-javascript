@@ -19,7 +19,7 @@
             }
 
             div.item-thumbnail {
-                background-image: url("../../resource/KakaoTalk_20240130_140935829.jpg");
+                background-image: url("images/thumbnail.jpg");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
                 background-position: center;
@@ -57,31 +57,33 @@
             }
 
             div.favorite {
-                background-image: url("../../resource/KakaoTalk_20240130_140809140.png");
+                background-image: url("images/least-favorite.png");
             }
 
             div.like {
                 margin-top: 4px;
-                background-image: url("../../resource/KakaoTalk_20240130_143846741_01.png");
+                background-image: url("images/dislike.png");
             }
 
             div.send {
                 margin-top: 4px;
-                background-image: url("../../resource/KakaoTalk_20240130_144753112.png");
-            }
-            div.send.on {
-                background-image: url("../../resource/KakaoTalk_20240130_144753112_01.png");
+                background-image: url("images/send.png");
             }
 
             /* 아래와 같이 선택자에 클래스를 붙여서 쓰면 and 연산이며, */
             /* 반드시 2개의 클래스가 순서에 상관없이 모두 있어야 적용된다. */
             /* .a.b: class="a b" */
             div.favorite.on {
-                background-image: url("../../resource/KakaoTalk_20240130_140809140_01.png");
+                background-image: url("images/favorite.png");
             }
 
             div.like.on {
-                background-image: url("../../resource/KakaoTalk_20240130_143846741.png");
+                background-image: url("images/like.png");
+            }
+
+            div.send.on {
+                margin-top: 4px;
+                background-image: url("images/send-on.png");
             }
         </style>
     </head>
@@ -110,6 +112,7 @@
             "section .icon-wrap div.favorite"
         );
         const likes = document.querySelectorAll("section .icon-wrap div.like");
+        const sends = document.querySelectorAll("section .icon-wrap div.send");
 
         favorites.forEach((favorite) => {
             favorite.addEventListener("click", (e) => {
@@ -123,13 +126,12 @@
             });
         });
 
-        const sends = document.querySelectorAll("section .icon-wrap div.send");
-        
         sends.forEach((send) => {
-            send.addEventListener("mouseenter", (e) => {
+            send.addEventListener("mouseover", (e) => {
                 e.target.classList.toggle("on");
             });
-            send.addEventListener("mouseleave", (e) => {
+
+            send.addEventListener("mouseout", (e) => {
                 e.target.classList.toggle("on");
             });
         });

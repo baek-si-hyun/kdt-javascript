@@ -3,8 +3,12 @@
 fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then((users) => {
-        users.forEach((user) => {
-            const { zipcode } = user.address;
-            console.log(zipcode);
-        });
+        test(users);
     });
+
+function test(zipcode) {
+    users.forEach((user) => {
+        const { zipcode } = user.address;
+        console.log(zipcode);
+    });
+}
