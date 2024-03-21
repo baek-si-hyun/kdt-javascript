@@ -32,6 +32,7 @@
     libuv(리버브) 라이브러리를 사용한다.
     
 <img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/83165c61-02ec-42de-8c8c-110e7602e500/public"/>
+
 1. 애플리케이션에서 요청이 발생하면, V8엔진은 자바스크립트 코드를 바이트 코드 혹은 기계어로 변경한다.
 2. 자바스크립트로 작성된 Node.js의 API는 C++로 작성된 코드로 사용된다.
 3. V8 엔진은 이벤트 루프가 필요하기 때문에 libuv를 사용하고, 전달된 요청을 libuv의 이벤트 큐에 추가한다.
@@ -48,7 +49,8 @@
 
 ### 이벤트 기반 아키텍처
 
-<img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/bd927049-11fd-4af6-f75e-97ae94475100/public"/>
+<img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/794ac370-77ca-4541-5b3e-9eff2dff9e00/public"/>
+
 1. V8의 콜 스택에 쌓인 뒤 I/O 처리가 필요한 코드는 이벤트 루프로 보낸다.
 2. 이벤트 루프에서 처리될 작업을 태스크 큐에 담는다.
 3. 태스크 큐에 있는 작업을 이벤트 루프로 보내서 루프를 실행하고 운영체에 또는 쓰레드 워커에서 I/O 처리를 진행한다.
@@ -60,6 +62,7 @@
 	여러 큐를 사용해서 특정 우선순위대로 작업들을 처리해준다.
 
 <img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/e7ca0484-7d79-4662-7c3c-6504b4861000/public"/>
+
 1. 이벤트 루프의 시작 및 각 반복의 마지막에 루프가 활성화 상태인지 체크한다.
 2. 타이머 단계에서 타이머 큐를 처리하며, 이 때 setTimeout(), setInterval()을 처리한다.
     타이머가 실행되는 순서는 확실하지 않고, 프로세스의 퍼포먼스에 따라 다르다.
