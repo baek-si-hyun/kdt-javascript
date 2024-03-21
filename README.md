@@ -70,6 +70,10 @@
     process.nextTick()함수를 통해 nextTickQueue에 작업을 추가할 수 있고,
     이벤트 루프가 진행되기 전에 에러를 핸들하며 필요 없는 자원을 해제 및 재요청 처리까지 가능하다.
     microTaskQueue에는 Promise로 만든 콜백 함수가 추가된다.
+
+<img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/bd927049-11fd-4af6-f75e-97ae94475100/public"/>
+<img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/83165c61-02ec-42de-8c8c-110e7602e500/public"/>
+<img src="https://imagedelivery.net/4aEUbX05h6IovGOQjgkfSw/e7ca0484-7d79-4662-7c3c-6504b4861000/public"/>
 <hr/>
 
 ### 자바스크립트를 작성할 수 있는 위치
